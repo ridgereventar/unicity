@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/Anncmnts.css';
 
-import Anncmnt from './Anncmnt';
-
+import Anncmnt from '../components/Anncmnt';
 
 class Anncmnts extends Component {
 
