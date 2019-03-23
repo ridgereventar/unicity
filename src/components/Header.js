@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import '../styles/Header.css';
+import {CoursesContext} from './App';
 
-const Header = () => {
+const Header = (props) => {
+
     return (
         <div className="header"> 
             <div className="header-title-container">
@@ -12,9 +14,16 @@ const Header = () => {
             </div>
             <div className="header-account-container">
                 <div className="account-info">
-                    <small id="account-name">Ridge Reventar</small>
-                    <br></br>
-                    <small id="account-status">MEMBER</small>
+                    <CoursesContext>
+                        {({courses}) =>
+                            <React.Fragment>
+                                <small id="account-name">{courses.length > 0 ? courses[0].name : ''}</small>
+                                <br></br>
+                                <small id="account-status"></small>
+                            </React.Fragment>
+                        }
+                    </CoursesContext>
+                    
                 </div>
                 <div className="photo-container">
                     <div className="circle-container" style={ {backgroundImage:`url(${require('../assets/ridgepic.png')})`} }>
@@ -29,3 +38,8 @@ const Header = () => {
 };
 
 export default Header;
+
+
+
+
+

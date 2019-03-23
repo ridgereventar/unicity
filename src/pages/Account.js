@@ -12,12 +12,10 @@ import Footer from '../components/Footer';
 import Anncmnts from './Anncmnts';
 
 class Account extends Component {
-    state = {  }
     render() { 
         return (  
             <BrowserRouter>
-                
-                <Header></Header>
+                <Header/>
                 <NavBar></NavBar>
                 <Carousel></Carousel>
                 <Anncmnts></Anncmnts>
