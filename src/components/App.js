@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route, Link } from "react-router-dom";
 import $ from 'jquery';
 import '../styles/App.css';
 
-import Header from './Header';
-import Navbar from './Navbar';
-import Carousel from './Carousel';
-import Anncmnts from './Anncmnts';
-import Question from './Question';
-import Footer from './Footer';
+// Pages: 
+import Home from '../pages/Home';
+import Account from '../pages/Account';
 
 class App extends Component {
 
@@ -22,14 +20,11 @@ class App extends Component {
   render() {
 
     return (
-      <div className="App">
-        <Header></Header>
-        <Navbar></Navbar>
-        <Carousel></Carousel>
-        <Anncmnts></Anncmnts>
-        <Question></Question>
-        <Footer></Footer>
-      </div>
+      <BrowserRouter>
+        <Route path="/" exact component={Home}></Route>
+        <Route path="/account" component={Account}></Route>
+      </BrowserRouter>
+      
     );
   }
 }

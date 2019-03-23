@@ -8,11 +8,7 @@ class Anncmnts extends Component {
   constructor(props) {
     super(props);
   }
-
-  componentDidMount() {
-    // $.ajax({
-  }
-
+  
   render() {
     console.log("announcements rendered!");
 
