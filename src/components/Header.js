@@ -14,16 +14,9 @@ const Header = (props) => {
             </div>
             <div className="header-account-container">
                 <div className="account-info">
-                    <CoursesContext>
-                        {({courses}) =>
-                            <React.Fragment>
-                                <small id="account-name">{courses.length > 0 ? courses[0].name : ''}</small>
-                                <br></br>
-                                <small id="account-status"></small>
-                            </React.Fragment>
-                        }
-                    </CoursesContext>
-                    
+                    <small id="account-name">Ridge Reventar</small>
+                    <br></br>
+                    <small id="account-status">member</small>
                 </div>
                 <div className="photo-container">
                     <div className="circle-container" style={ {backgroundImage:`url(${require('../assets/ridgepic.png')})`} }>

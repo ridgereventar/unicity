@@ -8,6 +8,8 @@ import Carousel from '../components/Carousel';
 import Question from '../components/Question';
 import Footer from '../components/Footer';
 
+import Projects from './Projects';
+
 // pages
 import Anncmnts from './Anncmnts';
 
@@ -21,7 +23,7 @@ class Account extends Component {
                 <Anncmnts></Anncmnts>
                 <Question></Question>
                 <Footer></Footer>
-
+                <Route path="/account/projects" component={Projects}></Route>
             </BrowserRouter>
             
             

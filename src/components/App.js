@@ -13,29 +13,24 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      courses: []
-    }
+    // this.state = {
+    //   courses: []
+    // }
   }
 
   componentDidMount() {
-    $.get( "api/courses", (data) => {
-      this.setState({courses: data})
-    });
+    // $.get( "api/courses", (data) => {
+    //   this.setState({courses: data})
+    // });
   }
 
   render() {
 
     return (
-      <CoursesContext.Provider value={{
-        courses: this.state.courses
-      }}>
-        <BrowserRouter>
-          <Route path="/" exact component={Home}></Route>
-          <Route path="/account" component={Account}></Route>
-        </BrowserRouter>
-      </CoursesContext.Provider>
-    
+      <BrowserRouter>
+        <Route path="/" exact component={Home}></Route>
+        <Route path="/account" component={Account}></Route>
+      </BrowserRouter>
     );
   }
 }

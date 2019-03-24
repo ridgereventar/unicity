@@ -8,3 +8,8 @@ import App from './components/App';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
+
+// testing jquery code:
+$(function() {
+    $('.testdiv').css({'width':'100%', 'height':'300px', 'background-color':'red'})
+});
