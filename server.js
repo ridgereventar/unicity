@@ -19,7 +19,7 @@ mongoose
 const User = require('./models/User');
 
 // @route GET api/users (get ALL users from db)
-app.get('/api/users', (req, res) => {
+app.get('*/api/users', (req, res) => {
     User.find().then(users => res.json(users));
 });
 
@@ -31,6 +31,7 @@ app.post('/api/users', (req, res) => {
        username: req.body.username, 
        email: req.body.email,
        password: req.body.password, 
+       role: req.body.role, 
        phone: req.body.phone
     }); 
     newUser.save().then(user => res.json(user));

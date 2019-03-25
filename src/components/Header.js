@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/Header.css';
-import {CoursesContext} from './App';
+
+import {UserContext} from '../pages/Account';
 
 const Header = (props) => {
 
@@ -14,9 +15,16 @@ const Header = (props) => {
             </div>
             <div className="header-account-container">
                 <div className="account-info">
-                    <small id="account-name">Ridge Reventar</small>
-                    <br></br>
-                    <small id="account-status">member</small>
+                    <UserContext.Consumer>
+                        {({activeuser}) =>
+                            <React.Fragment>
+                                <small id="account-name">{activeuser.fname} {activeuser.lname}</small>
+                                <br></br>
+                                <small id="account-status">{activeuser.role}</small>
+                            </React.Fragment>
+                        } 
+                    </UserContext.Consumer>
+                    
                 </div>
                 <div className="photo-container">
                     <div className="circle-container" style={ {backgroundImage:`url(${require('../assets/ridgepic.png')})`} }>
