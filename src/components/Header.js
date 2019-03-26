@@ -9,7 +9,7 @@ const Header = (props) => {
         <div className="header"> 
             <div className="header-title-container">
                 <div className="logo-container">
-                    <img id="logo-img" src={require('../assets/logo2.png')}></img>
+                    <img id="logo-img" src={require('../assets/logo-dark.png')}></img>
                 </div>
                 <small className="unicity-title">UNIVERSE CITY FILM CLUB</small>
             </div>

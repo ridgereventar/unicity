@@ -1,0 +1,12 @@
+.films-page-container {
+    width: 100%; 
+    height: auto; 
+    background-color: black;
+    padding-top: 25px;
+}
+
+.video-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}

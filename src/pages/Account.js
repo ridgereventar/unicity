@@ -44,8 +44,8 @@ class Account extends Component {
                     
                     <Route path="/account/announcements" component={Anncmnts}></Route>
                     <Route path="/account/projects" component={Projects}></Route>
-                    <Route path="/account/Films" component={Films}></Route>
-                    <Route path="/account/Events" component={Events}></Route>
+                    <Route path="/account/films" component={Films}></Route>
+                    <Route path="/account/events" component={Events}></Route>
 
                     <Footer/>
                 </BrowserRouter>
