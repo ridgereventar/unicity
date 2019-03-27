@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 
 // Setup: 
 const app = express();
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 const db = "mongodb+srv://ridgerev:unicity1521@unicity-cluster-r8j9k.mongodb.net/test?retryWrites=true";
 mongoose
@@ -24,14 +25,13 @@ app.get('*/api/users', (req, res) => {
 });
 
 // @route POST api/users (create an Item)
-app.post('/api/users', (req, res) => {
+app.post('*/api/users', (req, res) => {
     const newUser = new User({
        fname: req.body.fname, 
        lname: req.body.lname,
        username: req.body.username, 
        email: req.body.email,
        password: req.body.password, 
-       role: req.body.role, 
        phone: req.body.phone
     }); 
     newUser.save().then(user => res.json(user));
