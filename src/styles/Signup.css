@@ -1,0 +1,115 @@
+.signup-container {
+    width:100%; 
+    height:100%;
+    background-position: center;
+    background-image: url('../assets/blurbg.jpg');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-container {
+    width: 700px; 
+    height: 600px;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 5%;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-top: 40px;
+
+}
+
+.inline-container:first-child {
+    margin-top:30px;
+}
+
+.inline-container {
+    margin-top:50px;
+}
+
+.form-name-label-container {
+    width: 100%;
+    height: 20px; 
+}
+
+.form-name-input-container {
+    width:100%;
+    height: 28px; 
+    margin-top: 10px;
+}
+
+.inline-label {
+    padding-left: 10px;
+    width:46%;
+}
+
+.label-secondchild {
+    margin-left: 8%;
+}
+
+.inline-input {
+    width: 46%;
+}
+
+.input-secondchild {
+    margin-left: 8%;
+}
+
+.fullwidth-input {
+    width: 100%;
+    display: block;
+}
+
+#email-label {
+    padding-left: 10px;
+    margin-top: 10px;
+}
+
+#phone-label {
+    padding-left: 10px;
+    margin-top: 10px;
+}
+
+#phone {
+    display: block;
+    width: 46%;
+}
+
+
+label {
+    font-size: 12px;
+}
+
+input {
+    margin-top: -5px;
+    border: none;
+    border-radius: 15px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 12px;
+    background-color: rgba(255,255,255,0.25);
+}
+
+input:focus {
+    outline: none;
+    
+}
+
+
+#submit-btn {
+    margin-top: 40px;
+    padding: 10px;
+    width: 120px;
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    background-color: black;
+    color:white;
+
+}
+
+#submit-btn:hover {
+    letter-spacing: 3.5px;
+    background-color: #2B2B2B;
+
+}

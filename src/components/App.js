@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 import $ from 'jquery';
 import '../styles/App.css';
 
@@ -31,12 +31,12 @@ class App extends Component {
 
     return (
       <BrowserRouter>
-        <switch>
+        <Switch>
           <Route path="/" exact component={Home}/>
           <Route path="/signup" component={Signup}/>
           <Route path="/login" component={Login}/>
           <Route path="/account" component={Account}/>
-        </switch>
+        </Switch>
         
       </BrowserRouter>
     );
