@@ -1,0 +1,229 @@
+
+
+
+.splash_background {
+  width : 100%;
+  height : 100%;
+  background-color: black;
+  cursor : pointer;
+}
+
+
+.splash {
+    position   : absolute;
+    top        : 45%;
+    width      : 100%;
+    height: auto;
+    clip       : inherit;
+    color      : #DAA520;
+    text-align : center;
+    cursor     : pointer;
+}
+ 
+.splash-title-container {
+  width: auto;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+
+.splash-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.9;
+}
+
+.splash-logo {
+  display: none;
+  width: 50px;
+  height: 35px; 
+  background-image: url('../assets/splashlogo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.splash_title {
+  text-align     : center;
+  text-transform : uppercase;
+  cursor         : pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.splash_title_main {
+  display        : none;
+  color          : #FFF;
+  opacity        : 0.85;
+  font-size      : 20px;
+  letter-spacing : 21px;
+  margin-left: 28px;
+}
+
+.splash_subtitle {
+  position         : relative;
+  width            : 100%;
+  color            : #000;
+  opacity          : 0.75;
+  background-color : #DAA520;
+  font-size        : 15px;
+  font-style       : italic;
+  font-weight      : bold;
+  letter-spacing   : 5px;
+}
+
+.click_to_begin {
+  display        : none;
+  width          : 100%;
+  text-transform : uppercase;
+  letter-spacing : 3px;
+  font-size: 12px;
+  position: fixed;
+  bottom: 10%;
+  
+}
+
+
+.backgroundImages {
+  display               : none;
+  position              : relative;
+  min-height            : 100%;
+  background-attachment : fixed;
+  background-position   : center;
+  background-size       : cover;
+}
+
+.title_position {
+  position       : absolute;
+  top            : 43%;
+  width          : 100%;
+  text-align     : center;
+  text-transform : uppercase;
+}
+
+.title {
+  position         : relative;
+  padding          : 15px;
+  color            : #FFF;
+  opacity          : 0.85;
+  background-color : #000;
+  font-size        : 35px;
+  letter-spacing   : 21px;
+}
+
+.subtitle {
+  position         : relative;
+  width            : 100%;
+  color            : #000;
+  opacity          : 0.75;
+  background-color : #DAA520;
+  font-size        : 15px;
+  font-style       : italic;
+  font-weight      : bold;
+  letter-spacing   : 5px;
+}
+
+.message {
+  display          : none;
+  position         : relative;
+  padding          : 25px;
+  background-color : #EEE;
+}
+
+.message_title {
+  position       : relative;
+  padding-bottom : 15px;
+  color          : #111;
+  text-align     : center;
+  text-transform : uppercase;
+  font-size      : 20px;
+  letter-spacing : 5px;
+}
+
+.message_content {
+  position    : relative;
+  color       : #444;
+  text-align  : center;
+  font-weight : 300;
+}
+
+.message_list {
+  width               : 60%;
+  margin              : 25px auto;
+  padding             : 22px 35px;
+  color               : #444;
+  border              : 3px solid #DAA520;
+  text-align          : left;
+  list-style-position : inside;
+}
+
+.message_list li {
+  padding-bottom : 15px;
+  color          : #777;
+  font-size      : 15px;
+  font-weight    : 300;
+}
+
+.image_line {
+  position         : absolute;
+  top              : 43%;
+  width            : 100%;
+  padding          : 15px 0px;
+  color            : #FFF;
+  opacity          : 0.85;
+  border-bottom    : 5px solid #DAA520;
+  background-color : #000;
+  text-align       : center;
+  text-transform   : uppercase;
+  font-size        : 25px;
+  letter-spacing   : 18px;
+}
+
+.image_line_join {
+  position       : absolute;
+  top            : 43%;
+  width          : 100%;
+  text-align     : center;
+  text-transform : uppercase;
+}
+
+.join {
+  position         : relative;
+  padding          : 15px;
+  color            : #FFF;
+  opacity          : 0.85;
+  border-bottom    : 5px solid #DAA520;
+  background-color : #000;
+  font-size        : 25px;
+  letter-spacing   : 21px;
+}
+
+.join_button {
+  position         : relative;
+  margin-top       : 20px;
+  padding          : 20px 10px;
+  color            : #DAA520;
+  opacity          : 0.9;
+  border           : none;
+  background-color : #000;
+  text-transform   : inherit;
+  font-size        : 15px;
+  letter-spacing   : 5px;
+  cursor           : pointer;
+}
+
+.join_button:hover {
+  color            : #000;
+  background-color : #DAA520;
+}
+
+.join_button:active {
+  border      : 2px solid #EEE;
+  font-weight : bold;
+}
+
+.footer {
+  display        : none;
+}
