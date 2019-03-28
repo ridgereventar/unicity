@@ -3,6 +3,7 @@ import $ from 'jquery';
 import '../styles/Login.css';
 
 import Banner from '../components/Banner';
+import Popup, { showSuccess, showError } from '../components/Popup';
 
 const scrollToTop = () => {
     const c = document.documentElement.scrollTop || document.body.scrollTop;
@@ -16,6 +17,7 @@ class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            signinstatus: true,
             username: null, 
             password: null,
             formErrors: {
@@ -26,7 +28,13 @@ class Login extends Component {
     }
 
     componentDidMount() {
-        scrollToTop();            
+        scrollToTop(); 
+        // if(typeof this.props.location.state.success !== null) {
+        //     this.setState({signinstatus: this.props.location.state.success});
+        // }
+        if(this.state.signinstatus) {
+            showSuccess();
+        }           
     }
 
 
@@ -81,16 +89,12 @@ class Login extends Component {
                             state: {activeuser: value}
                         })
                     } else {
-                        console.log("no user found");
+                        showError();
                     }
                 });
             });
         } else {
-            console.error('FORM INVALID - DISPLAY ERROR MSG');
-            console.log(`
-            error
-            username: ${this.state.userName}
-            password: ${this.state.password}`);
+            showError();
         }
     }
 
@@ -98,6 +102,10 @@ class Login extends Component {
         return ( 
             <React.Fragment>
                 <Banner/>
+                <div className="signup-popup-container">
+                    <Popup id="success" msg="Sign up successful!"></Popup>
+                    <Popup id="error" msg="User does not exist"></Popup>
+                </div>
 
                 <div className="login-container"> 
                     <div className="login-form-container">

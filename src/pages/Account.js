@@ -29,7 +29,6 @@ class Account extends Component {
             this.setState({users: data});
         });
     }
-
     openDrawer = () => {
         console.log("open drawer!");
         $('.block-cover').css({'opacity':'0.2', 'pointer-events':'all'});

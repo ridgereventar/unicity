@@ -160,3 +160,8 @@ input:focus {
     float: right;
     padding-right: 10px;
 }
+
+.signup-popup-container {
+    display: flex; 
+    justify-content: center;
+}

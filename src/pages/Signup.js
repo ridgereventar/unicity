@@ -3,8 +3,7 @@ import $ from 'jquery';
 
 import '../styles/Signup.css';
 import Banner from '../components/Banner';
-import Footer from '../components/Footer';
-
+import Popup, { showSuccess, showError } from '../components/Popup';
 
 const scrollToTop = () => {
     const c = document.documentElement.scrollTop || document.body.scrollTop;
@@ -91,6 +90,7 @@ class Signup extends Component {
         event.preventDefault();
 
         if(this.formValid(this.state)) {
+            showSuccess();
             const newuser = {
                 fname: this.state.firstName, 
                 lname: this.state.lastName, 
@@ -104,11 +104,14 @@ class Signup extends Component {
                 url: '/api/users', 
                 data: newuser
             })
-            let path = '/login';
-            this.props.history.push(path);
+
+            this.props.history.push({
+                pathname: '/login', 
+                state: {success: true}
+            })
 
         } else {
-            console.error('FORM INVALID - DISPLAY ERROR MSG');
+            showError();
         }
     }
 
@@ -116,8 +119,12 @@ class Signup extends Component {
         return (
             <React.Fragment>
                 <Banner/>
+                <div className="signup-popup-container">
+                    <Popup id="error" msg="Missing required fields"></Popup>
+                </div>
+                
                 <div className="signup-container">
-            
+                    
                     <div className="form-container">
                         <h1>Sign up</h1>
                         <form 

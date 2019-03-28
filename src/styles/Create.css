@@ -58,3 +58,34 @@ textarea:focus {
     letter-spacing: 3.5px;
     background-color: #2B2B2B;
 }
+
+
+.top-popup-msg-container {
+    position: fixed;
+    overflow: hidden;
+    width:350px; 
+    height: 40px; 
+    pointer-events: none; 
+    z-index: 50;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.top-popup-msg {
+    position: absolute;
+    top: -40px;
+    height: 40px;
+    width: 100%;
+    background-color: black;
+    transition: 1s;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+.top-popup-msg small{
+    color: white; 
+    letter-spacing: 1px;
+}

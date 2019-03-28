@@ -4,7 +4,7 @@ const Projectcard = (props) => {
 
     return (
         <div className="card-container"
-            style={{'background-image': `url(${require('../assets/proj1.jpg')})`}}>
+            style={{'backgroundImage': `url(${require('../assets/proj1.jpg')})`}}>
             <h1 id="proj-name">{props.projObj.projectname}</h1>
             <h3 className="proj-font-base">{props.projObj.creator}</h3>
             <p className="proj-font-base">{props.projObj.description}</p>
