@@ -2,7 +2,17 @@ import React, { Component } from 'react';
 import $ from 'jquery';
 
 import '../styles/Signup.css';
-import { request } from 'http';
+import Banner from '../components/Banner';
+import Footer from '../components/Footer';
+
+
+const scrollToTop = () => {
+    const c = document.documentElement.scrollTop || document.body.scrollTop;
+    if (c > 0) {
+      window.requestAnimationFrame(scrollToTop);
+      window.scrollTo(0, c - c / 100);
+    }
+};
 
 class Signup extends Component {
     constructor(props) {
@@ -23,6 +33,10 @@ class Signup extends Component {
                 password: "",  
             }
         }
+    }
+   
+    componentDidMount() {
+        scrollToTop();            
     }
 
     formValid = ({formErrors, ...rest}) => {
@@ -77,14 +91,6 @@ class Signup extends Component {
         event.preventDefault();
 
         if(this.formValid(this.state)) {
-            // console.log(`
-            // submitting
-            // fname: ${this.state.firstName}
-            // lname: ${this.state.lastName}
-            // username: ${this.state.userName}
-            // email: ${this.state.email}
-            // password: ${this.state.password}
-            // phone: ${this.state.phone}`);
             const newuser = {
                 fname: this.state.firstName, 
                 lname: this.state.lastName, 
@@ -93,126 +99,120 @@ class Signup extends Component {
                 password: this.state.password, 
                 phone: this.state.phone
             }
-
             $.ajax({
                 type: "POST",
                 url: '/api/users', 
                 data: newuser
             })
+            let path = '/login';
+            this.props.history.push(path);
 
-            // fetch('/api/users', {
-            //     method: 'POST', 
-            //     body: newuser
-            // })
         } else {
-            console.error('FORM INVALID - DISPLAY ERROR MSG')
-            console.log(`
-            error
-            fname: ${this.state.firstName}
-            lname: ${this.state.lastName}
-            username: ${this.state.userName}
-            email: ${this.state.email}
-            password: ${this.state.password}
-            phone: ${this.state.phone}`);;
+            console.error('FORM INVALID - DISPLAY ERROR MSG');
         }
     }
 
     render() { 
         return (
-            <div className="signup-container">
-                <div className="form-container">
-                    <h1>Sign up</h1>
-                    <form 
-                        onSubmit={this.handleSubmit} 
-                        className="signup-form">
-                        <div className="inline-container">
-                            <div className="form-name-label-container">
-                                <label className="inline-label" htmlFor="fname">First Name</label>
-                                <label className="inline-label label-secondchild" htmlFor="lname">Last Name</label>
+            <React.Fragment>
+                <Banner/>
+                <div className="signup-container">
+            
+                    <div className="form-container">
+                        <h1>Sign up</h1>
+                        <form 
+                            onSubmit={this.handleSubmit} 
+                            className="signup-form">
+                            <div className="inline-container">
+                                <div className="form-name-label-container">
+                                    <label className="inline-label" htmlFor="fname">First Name</label>
+                                    <label className="inline-label label-secondchild" htmlFor="lname">Last Name</label>
+                                </div>
+                                <div className="form-name-input-container">
+                                    <input 
+                                        className="inline-input" 
+                                        type="text" 
+                                        id="fname"
+                                        placeholder="John"
+                                        name="firstName"
+                                        onChange={this.handleChange}/>
+                                    <input 
+                                        className="inline-input input-secondchild" 
+                                        type="text" 
+                                        id="lname"
+                                        placeholder="Doe"
+                                        name="lastName"
+                                        onChange={this.handleChange}/>
+                                </div>
                             </div>
-                            <div className="form-name-input-container">
-                                <input 
-                                    className="inline-input" 
-                                    type="text" 
-                                    id="fname"
-                                    placeholder="John"
-                                    name="firstName"
-                                    onChange={this.handleChange}/>
-                                <input 
-                                    className="inline-input input-secondchild" 
-                                    type="text" 
-                                    id="lname"
-                                    placeholder="Doe"
-                                    name="lastName"
-                                    onChange={this.handleChange}/>
+                            <div className="error-msg-container">
+                                {this.state.formErrors.firstName.length > 0 && (
+                                    <span className="error-msg">{this.state.formErrors.firstName}<br></br></span>
+                                )}
+                                {this.state.formErrors.lastName.length > 0 && (
+                                    <span className="error-msg err-msg-second">{this.state.formErrors.lastName}<br></br></span>
+                                )}
                             </div>
-                        </div>
-                        <div className="error-msg-container">
-                            {this.state.formErrors.firstName.length > 0 && (
-                                <span className="error-msg">{this.state.formErrors.firstName}<br></br></span>
-                            )}
-                            {this.state.formErrors.lastName.length > 0 && (
-                                <span className="error-msg err-msg-second">{this.state.formErrors.lastName}<br></br></span>
-                            )}
-                        </div>
-                    
-                        <label id="email-label" htmlFor="email-input">Email</label>
-                        <input 
-                            className="fullwidth-input" 
-                            type="email" 
-                            id="email-input"
-                            placeholder="john.doe@uoit.net"
-                            name="email"
-                            onChange={this.handleChange}/>
-                        {this.state.formErrors.emailaddr.length > 0 && (
-                            <span className="error-msg">{this.state.formErrors.emailaddr}<br></br></span>
-                        )}
                         
-                        <div className="inline-container">
-                            <div className="form-name-label-container">
-                                <label className="inline-label" htmlFor="username">Username</label>
-                                <label className="inline-label label-secondchild" htmlFor="password">Password</label>
-                            </div>
-                            <div className="form-name-input-container">
-                                <input 
-                                    className="inline-input" 
-                                    type="text" 
-                                    id="username"
-                                    placeholder="johndoe"
-                                    name="userName"
-                                    onChange={this.handleChange}/>
-                                <input 
-                                    className="inline-input input-secondchild" 
-                                    type="password" 
-                                    id="password"
-                                    placeholder="johndoe123"
-                                    name="password"
-                                    onChange={this.handleChange}/>
-                            </div>
-                        </div>
-                        <div className="error-msg-container">
-                            {this.state.formErrors.userName.length > 0 && (
-                                <span className="error-msg">{this.state.formErrors.userName}<br></br></span>
+                            <label id="email-label" htmlFor="email-input">Email</label>
+                            <input 
+                                className="fullwidth-input" 
+                                type="email" 
+                                id="email-input"
+                                placeholder="john.doe@uoit.net"
+                                name="email"
+                                onChange={this.handleChange}/>
+                            {this.state.formErrors.emailaddr.length > 0 && (
+                                <span className="error-msg">{this.state.formErrors.emailaddr}<br></br></span>
                             )}
-                            {this.state.formErrors.password.length > 0 && (
-                                <span className="error-msg err-msg-second">{this.state.formErrors.password}<br></br></span>
-                            )}
-                        </div>
+                            
+                            <div className="inline-container">
+                                <div className="form-name-label-container">
+                                    <label className="inline-label" htmlFor="username">Username</label>
+                                    <label className="inline-label label-secondchild" htmlFor="password">Password</label>
+                                </div>
+                                <div className="form-name-input-container">
+                                    <input 
+                                        className="inline-input" 
+                                        type="text" 
+                                        id="username"
+                                        placeholder="johndoe"
+                                        name="userName"
+                                        onChange={this.handleChange}/>
+                                    <input 
+                                        className="inline-input input-secondchild" 
+                                        type="password" 
+                                        id="password"
+                                        placeholder="johndoe123"
+                                        name="password"
+                                        onChange={this.handleChange}/>
+                                </div>
+                            </div>
+                            <div className="error-msg-container">
+                                {this.state.formErrors.userName.length > 0 && (
+                                    <span className="error-msg">{this.state.formErrors.userName}<br></br></span>
+                                )}
+                                {this.state.formErrors.password.length > 0 && (
+                                    <span className="error-msg err-msg-second">{this.state.formErrors.password}<br></br></span>
+                                )}
+                            </div>
 
-                        <label id="phone-label" htmlFor="phone">Phone (optional)</label>
-                        <input 
-                            type="text" 
-                            id="phone"
-                            placeholder="905 999 9999"
-                            name="phone"
-                            onChange={this.handleChange}/>
+                            <label id="phone-label" htmlFor="phone">Phone (optional)</label>
+                            <input 
+                                type="text" 
+                                id="phone"
+                                placeholder="905 999 9999"
+                                name="phone"
+                                onChange={this.handleChange}/>
+                            
+                            <input id="submit-btn" type="submit" value="SIGN UP" />
+
+                        </form>
                         
-                        <input id="submit-btn" type="submit" value="SIGN UP"/>
-
-                    </form>
-                    
+                    </div>
                 </div>
-            </div>
+                {/* <Footer></Footer> */}
+            </React.Fragment>
         );
     }
 }

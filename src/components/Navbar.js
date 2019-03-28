@@ -7,10 +7,10 @@ const Navbar = () => {
     return (
         <div className="nav-container">
             <ul>
-                <li><a><Link to="/account/announcements">ANNOUNCEMENTS</Link></a></li>
-                <li><a><Link to="/account/projects">CLUB PROJECTS</Link></a></li>
-                <li><a><Link to="/account/films">FINISHED FILMS</Link></a></li>
-                <li><a><Link to="/account/events">EVENT CALENDAR</Link></a></li>
+                <li><Link to="/account/announcements">ANNOUNCEMENTS</Link></li>
+                <li><Link to="/account/projects">CLUB PROJECTS</Link></li>
+                <li><Link to="/account/films">FINISHED FILMS</Link></li>
+                <li><Link to="/account/events">EVENT CALENDAR</Link></li>
             </ul>
         </div>
     );

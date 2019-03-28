@@ -21,17 +21,12 @@ class Account extends Component {
         super(props);
         this.state = {
             users: [], 
-            activeuser: {},
+            activeuser: this.props.location.state.activeuser
         }
     }
     componentDidMount() {
         $.get("api/users", (data) => {
             this.setState({users: data});
-            $.each(data, (key, value) => {
-                if(value.username === 'afgantalpur') {
-                    this.setState({activeuser: value});
-                }
-            });
         });
     }
 
