@@ -1,18 +1,30 @@
 import React, { Component } from 'react';
+import $ from 'jquery';
 import '../styles/Projects.css';
 
 import Projectcard from '../components/Projectcard';
 
 class Projects extends Component {
-    state = {  }
+    constructor(props) {
+        super(props); 
+        this.state = {
+            projects: []
+        }
+    }
+
+    componentDidMount() {
+        $.get("api/projects", (data) => {
+          this.setState({projects: data});
+      });
+    }
+
     render() { 
         return (  
             <div className="projects-container">
                 <h1 id="proj-label">Current Projects</h1>
-                <Projectcard></Projectcard>
-                <Projectcard></Projectcard>
-                <Projectcard></Projectcard>
-
+                {this.state.projects.map(proj => (
+                  <Projectcard projObj={proj}></Projectcard>
+                ))}            
             </div>
         );
     }

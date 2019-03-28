@@ -5,7 +5,7 @@ const Anncmnt = (props) => {
     return (
         <React.Fragment>
         <div className="anncmnt-item">
-            <h3 style={{'text-transform':'uppercase'}}>{props.annObj.title}</h3>
+            <h3 style={{'textTransform':'uppercase'}}>{props.annObj.title}</h3>
             <p>{props.annObj.content}</p>
         </div>
         <div className="author-container">

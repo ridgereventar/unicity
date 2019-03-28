@@ -19,7 +19,7 @@ class Anncmnts extends Component {
   componentDidMount() {
     $.get("api/announcements", (data) => {
       this.setState({announcements: data});
-  });
+    });
 
   }
 

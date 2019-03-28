@@ -13,9 +13,9 @@ mongoose
     .then(() => console.log('UnicityDB Connected...'))
     .catch(err => console.log(err));
 
-// ROUTES: ---------------------------------------------------------------
+// ROUTES:
 
-// USER: 
+// USER:  ---------------------------------------------------------------
 
 const User = require('./models/User');
 
@@ -45,7 +45,7 @@ app.delete('/api/users/:id', (req, res) => {
         .catch(err => res.status(404).json({success: false}));
 })
 
-// ANNOUNCEMENTS: 
+// ANNOUNCEMENTS:  --------------------------------------------------------
 
 const Announcement = require('./models/Announcement');
 
@@ -65,7 +65,26 @@ app.post('*/api/announcements', (req, res) => {
     newAnn.save().then(ann => res.json(ann));
 });
 
+// PROJECTS:  --------------------------------------------------------
 
+const Proj = require('./models/Proj');
+
+// @route GET api/projects (get ALL projects from db)
+app.get('*/api/projects', (req, res) => {
+    Proj.find().then(projs => res.json(projs));
+});
+
+// @route POST api/projects (create a project)
+app.post('*/api/projects', (req, res) => {
+    const newProj = new Proj({
+        projectname: req.body.projectname, 
+        creator: req.body.creator,
+        description: req.body.description, 
+        lookingfor: req.body.lookingfor,
+        members: req.body.members
+    }); 
+    newProj.save().then(proj => res.json(proj));
+});
 
 // Port and Listen: 
 const port = process.env.PORT || 5000; 
