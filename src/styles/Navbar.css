@@ -33,13 +33,15 @@ body {
     margin-right:0px;
 }
 
-.nav-container Link{
+.nav-link {
     color: black;
 }
 
-.nav-container Link:hover{
+.nav-link:hover {
     color:#C89F3C;
 }
+
+
 
 /* .nav-container a{
     color: black;
