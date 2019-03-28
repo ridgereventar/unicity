@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import $ from 'jquery';
 import '../styles/Anncmnts.css';
+
 
 import Carousel from '../components/Carousel';
 import Anncmnt from '../components/Anncmnt';
@@ -9,20 +11,28 @@ class Anncmnts extends Component {
 
   constructor(props) {
     super(props);
+    this.state = { 
+      announcements: []
+    }
   }
   
-  render() {
-    console.log("announcements rendered!");
+  componentDidMount() {
+    $.get("api/announcements", (data) => {
+      this.setState({announcements: data});
+  });
 
+  }
+
+  render() {
     return (
       <React.Fragment>
         <Carousel/>
         <div className="anncmnts-container">
             <div className="anncmnts-content">
                 <h2 className="annc-title">Announcements</h2>
-                <Anncmnt></Anncmnt>
-                <Anncmnt></Anncmnt>
-                <Anncmnt></Anncmnt>
+                {this.state.announcements.map(ann => (
+                  <Anncmnt annObj={ann}></Anncmnt>
+                ))}
             </div>
         </div>
         <Question/>

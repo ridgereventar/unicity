@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 const db = "mongodb+srv://ridgerev:unicity1521@unicity-cluster-r8j9k.mongodb.net/test?retryWrites=true";
 mongoose
-    .connect(db)
+    .connect(db, {useNewUrlParser: true})
     .then(() => console.log('UnicityDB Connected...'))
     .catch(err => console.log(err));
 
@@ -44,6 +44,27 @@ app.delete('/api/users/:id', (req, res) => {
         .then(() => res.json({success: true})))
         .catch(err => res.status(404).json({success: false}));
 })
+
+// ANNOUNCEMENTS: 
+
+const Announcement = require('./models/Announcement');
+
+// @route GET api/announcements (get ALL announcements from db)
+app.get('*/api/announcements', (req, res) => {
+    Announcement.find().then(announcemnets => res.json(announcemnets));
+});
+
+// @route POST api/announcements (create an Announcement)
+app.post('*/api/announcements', (req, res) => {
+    const newAnn = new Announcement({
+       title: req.body.title, 
+       content: req.body.content,
+       author: req.body.author, 
+       role: req.body.role
+    }); 
+    newAnn.save().then(ann => res.json(ann));
+});
+
 
 
 // Port and Listen: 
