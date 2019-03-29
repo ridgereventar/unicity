@@ -118,7 +118,7 @@ class Signup extends Component {
     render() { 
         return (
             <React.Fragment>
-                <Banner/>
+                <Banner history={this.props.history}/>
                 <div className="signup-popup-container">
                     <Popup id="error" msg="Missing required fields"></Popup>
                 </div>
