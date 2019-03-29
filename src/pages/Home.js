@@ -3,33 +3,25 @@ import { BrowserRouter, Route, Link } from "react-router-dom";
 import '../styles/Home.css';
 
 import Footer from '../components/Footer';
+import Splash from '../components/Splash';
 
 class Home extends Component {
 
-    state = {  }
+    goToLogin = () => {
+        this.props.history.push({
+            pathname: '/login', 
+            state: {success: false}
+        })
+    }
+
     render() { 
         return ( 
             <BrowserRouter>
-                <div className="splash_background">
-                </div>
+                <Splash></Splash>
 
-                
-                <div className="splash" id="splash">
-                    <div className="splash-title-container">
-                        <div className="splash-logo-container">
-                            <div className="splash-logo"></div>
-                        </div>
-                        <div className="splash_title" id="splash_title">
-                            <div className="splash_title_main">Universe City Film Club</div>
-                        </div>
-                    </div>
-                    
-                    
-                    <div className="click_to_begin">Click to Begin</div>
-                </div>
-            
-
-                <div className="backgroundImages" id="backgroundImage_1" src={require('../assets/bg1.jpg')}>
+                <div className="backgroundImages" id="bg1">
+                    <div className="login-btn-container" onClick={this.goToLogin}>
+                    </div> 
                     <div className="title_position">
                         <div className="title">Universe City Film Club</div>
                         <div className="subtitle">For Students, By Students.</div>
@@ -50,7 +42,7 @@ class Home extends Component {
                     </div>
                 </div>
 
-                <div className="backgroundImages" id="backgroundImage_2" src={require('../assets/bg2.jpg')}>
+                <div className="backgroundImages" id="bg2" >
                     <div className="image_line">Create Short Films at UOIT</div>
                 </div>
 
@@ -69,7 +61,7 @@ class Home extends Component {
                     </div>
                 </div>
 
-                <div className="backgroundImages" id="backgroundImage_3" src={require('../assets/bg3.jpg')}>
+                <div className="backgroundImages" id="bg3" >
                     <div className="image_line">Learn Editing Software</div>
                 </div>
 
@@ -82,7 +74,7 @@ class Home extends Component {
                     </div>
                 </div>
 
-                <div className="backgroundImages" id="backgroundImage_4" src={require('../assets/bg4.jpg')}>
+                <div className="backgroundImages" id="bg4">
                     <div className="image_line_join">
                         <div className="join">Join Today</div>
                     
@@ -93,6 +85,7 @@ class Home extends Component {
                 <div className="footer">
                     <Footer></Footer>
                 </div>
+
 
             </BrowserRouter>
 

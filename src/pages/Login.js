@@ -17,7 +17,7 @@ class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            signinstatus: true,
+            signinsuccess: false,
             username: null, 
             password: null,
             formErrors: {
@@ -29,9 +29,7 @@ class Login extends Component {
 
     componentDidMount() {
         scrollToTop(); 
-        // if(typeof this.props.location.state.success !== null) {
-        //     this.setState({signinstatus: this.props.location.state.success});
-        // }
+        this.setState({signinsuccess: this.props.location.state.success})
         if(this.state.signinstatus) {
             showSuccess();
         }           
@@ -98,6 +96,12 @@ class Login extends Component {
         }
     }
 
+    toSignup = () => {
+        this.props.history.push({
+            pathname: '/signup'
+        })
+    }
+
     render() { 
         return ( 
             <React.Fragment>
@@ -135,6 +139,8 @@ class Login extends Component {
                             )}
 
                             <input id="submit-btn" type="submit" value="LOGIN" />
+                            <input id="submit-btn" type="button" value="SIGN UP" onClick={this.toSignup} style={{'marginTop': '10px'}} />
+
                         </form> 
                     </div>
                 </div>

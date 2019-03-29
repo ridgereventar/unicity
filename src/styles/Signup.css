@@ -128,6 +128,7 @@ input:focus {
 
 
 #submit-btn {
+    display: block;
     margin-top: 40px;
     padding: 10px;
     width: 120px;

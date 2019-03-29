@@ -31,6 +31,7 @@ class App extends Component {
 
     return (
       <BrowserRouter>
+
         <Switch>
           <Route path="/" exact component={Home}/>
           <Route path="/signup" component={Signup}/>

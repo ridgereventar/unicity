@@ -9,6 +9,7 @@
     "express": "^4.16.4",
     "joi": "^14.3.1",
     "jquery": "^3.3.1",
+    "js-cookie": "^2.2.0",
     "mongoose": "^5.4.19",
     "react": "^16.8.4",
     "react-bootstrap": "^1.0.0-beta.5",

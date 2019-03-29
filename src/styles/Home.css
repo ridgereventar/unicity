@@ -1,42 +1,28 @@
 
 
-
 .splash_background {
   width : 100%;
   height : 100%;
   background-color: black;
   cursor : pointer;
-}
-
-
-.splash {
-    position   : absolute;
-    top        : 45%;
-    width      : 100%;
-    height: auto;
-    clip       : inherit;
-    color      : #DAA520;
-    text-align : center;
-    cursor     : pointer;
-}
- 
-.splash-title-container {
-  width: auto;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-}
-
-
-.splash-logo-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0.9;
+}
+ 
+.splash-title-container {
+  position: absolute;
+  top: 20;
+  height: 50px;
+  display: none; 
+  align-items: center;
+}
+
+.splash-title-container h1 {
+  margin-bottom: 0;
 }
 
 .splash-logo {
-  display: none;
   width: 50px;
   height: 35px; 
   background-image: url('../assets/splashlogo.png');
@@ -44,17 +30,7 @@
   background-repeat: no-repeat;
 }
 
-.splash_title {
-  text-align     : center;
-  text-transform : uppercase;
-  cursor         : pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 .splash_title_main {
-  display        : none;
   color          : #FFF;
   opacity        : 0.85;
   font-size      : 20px;
@@ -62,38 +38,42 @@
   margin-left: 28px;
 }
 
-.splash_subtitle {
-  position         : relative;
-  width            : 100%;
-  color            : #000;
-  opacity          : 0.75;
-  background-color : #DAA520;
-  font-size        : 15px;
-  font-style       : italic;
-  font-weight      : bold;
-  letter-spacing   : 5px;
-}
-
 .click_to_begin {
-  display        : none;
+  text-align: center;
   width          : 100%;
   text-transform : uppercase;
   letter-spacing : 3px;
   font-size: 12px;
   position: fixed;
   bottom: 10%;
-  
+  color: #C89F3C;
+  display: none;
+
 }
 
+#bg1 {
+  background-image: url('../assets/bg1.jpg');
+}
+#bg2 {
+  background-image: url('../assets/bg2.jpg');
+}
+#bg3 {
+  background-image: url('../assets/bg3.jpg');
+}
+#bg4 {
+  background-image: url('../assets/bg4.jpg');
+}
 
 .backgroundImages {
-  display               : none;
+  display: none;
   position              : relative;
   min-height            : 100%;
   background-attachment : fixed;
   background-position   : center;
-  background-size       : cover;
+  background-size: cover;
 }
+
+
 
 .title_position {
   position       : absolute;
@@ -225,5 +205,24 @@
 }
 
 .footer {
-  display        : none;
+  display: none;
 }
+
+.login-btn-container {
+  margin-left: 2%; 
+  margin-top: 2%;
+  width: 40px; 
+  height: 40px; 
+  position: fixed;
+  top: 0;
+  background-image: url('../assets/profileicon.png');
+  background-size: contain;
+  z-index: 30;
+  display: none;
+}
+
+.login-btn-container:hover {
+  background-image: url('../assets/profileiconhover.png');
+  transition: 0.3s;
+}
+
