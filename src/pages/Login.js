@@ -29,8 +29,8 @@ class Login extends Component {
 
     componentDidMount() {
         scrollToTop(); 
-        this.setState({signinsuccess: this.props.location.state.success})
-        if(this.state.signinstatus) {
+        // this.setState({signinsuccess: this.props.location.state.success})
+        if(this.props.location.state.success) {
             showSuccess();
         }           
     }

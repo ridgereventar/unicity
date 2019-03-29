@@ -25,10 +25,10 @@ const Footer = () => {
                     <small id="copyright-label">© 2019 Universe City Film Club</small>
                     <div className="icons-container">
                         <ul id="social-icons-list">
-                            <a><img src={require('../assets/instaicon.png')}></img></a>
-                            <a><img src={require('../assets/twittericon.png')}></img></a>
-                            <a><img src={require('../assets/fbicon.png')}></img></a>
-                            <a><img src={require('../assets/yticon.png')}></img></a>
+                            <a href="https://www.instagram.com/" target="_blank"><img src={require('../assets/instaicon.png')}></img></a>
+                            <a href="https://twitter.com/" target="_blank"><img src={require('../assets/twittericon.png')}></img></a>
+                            <a href="https://www.facebook.com/" target="_blank"><img src={require('../assets/fbicon.png')}></img></a>
+                            <a href="https://www.youtube.com/channel/UCWxrjQiHaLlKqrXFv817QuA/featured" target="_blank"><img src={require('../assets/yticon.png')}></img></a>
 
                         </ul>
                     </div>

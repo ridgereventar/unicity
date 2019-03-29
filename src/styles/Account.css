@@ -78,3 +78,11 @@
 #account-link {
     letter-spacing: 2px;
 }
+
+.drawer-nav-link {
+    color:white;
+}
+
+.drawer-nav-link:hover {
+    color:#C89F3C;
+}

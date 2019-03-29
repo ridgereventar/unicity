@@ -44,6 +44,13 @@ class Account extends Component {
 
     }
 
+    logout = () => {
+        this.props.history.push({
+            pathname: '/login', 
+            state: {success: false}
+        })
+    }
+
     render() {         
         return (  
             <UserContext.Provider value={{users: this.state.users, activeuser: this.state.activeuser}}>
@@ -57,9 +64,8 @@ class Account extends Component {
                             </div>
                             <div className="drawer-content">
                                 <ul>
-                                    <li><Link onClick={this.hideDrawer} to="/account/create">CREATE A PROJECT</Link></li>
-                                    <li id="account-link">ACCOUNT</li>
-                                    <li>LOG OUT</li>
+                                    <li><Link className="drawer-nav-link" onClick={this.hideDrawer} to="/account/create"  style={{ textDecoration: 'none' }}>CREATE A PROJECT</Link></li>
+                                    <li className="drawer-nav-link" onClick={this.logout}>LOG OUT</li>
 
                                 </ul>
                             </div>
