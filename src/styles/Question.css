@@ -33,16 +33,31 @@ body {
     color:white;
 }
 
+#question-sent-msg {
+    color: white;
+    margin-left: 7.5%;
+    display: none;
+}
+
 #question-send-button {
     float: right;
     margin-top: 5px;
     margin-right: 7.5%;
     border-radius: 16px;
+    padding-left: 0;
+    padding-right: 0;
     font-size: 12px;
     font-weight: 600;
     width: 80px;
     border: none;
+    letter-spacing: 1px;
 }
 #question-send-button:hover {
-    background-color: #C89F3C;
+    background-color: black;
+    color: white;
 }
+
+#question-send-button:focus {
+    outline: none;
+}
+
