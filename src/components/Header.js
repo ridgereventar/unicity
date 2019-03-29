@@ -27,7 +27,7 @@ const Header = (props) => {
                     
                 </div>
                 <div className="photo-container">
-                    <div onClick={props.openDrawer} className="circle-container" style={ {backgroundImage:`url(${require('../assets/ridgepic.png')})`} }>
+                    <div onClick={props.openDrawer} className="circle-container" >
                     </div>
                 </div>
             </div>

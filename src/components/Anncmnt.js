@@ -10,11 +10,8 @@ const Anncmnt = (props) => {
         </div>
         <div className="author-container">
             <div className="author-account-info">
-                <small id="author-name"> - {props.annObj.author}</small>
-                <br></br>
-                <small id="author-status">{props.annObj.role}</small>
+                <small id="author-name"> - {props.annObj.author} ({props.annObj.role})</small>
             </div>
-            <div className="author-circle-container" style={ {backgroundImage:`url(${require('../assets/ridgepic.png')})`} }> </div>
         </div>
         <div className="divider"></div>
         </React.Fragment>

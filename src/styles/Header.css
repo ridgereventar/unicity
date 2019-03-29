@@ -85,7 +85,12 @@ body {
     width: 35px; 
     height: 35px; 
     border-radius: 50%;
+    background-image: url('../assets/defaultpic.png');
     background-size: cover;
+  }
+  .circle-container:hover {
+    background-image: url('../assets/defaulthover.png');
+    transition: 0.5s;
   }
   
   #profile-pic {

@@ -17,8 +17,9 @@ const myCarousel = () => {
                     to navigate through their lives with hoodman professors, 
                     rude interviewers, and confused classmates. Welcome to Toronto. 
                     </p>
-                    <button className="watch-button">Watch Video</button>
-                </div>
+                    <a href="https://www.youtube.com/watch?v=L2bKK5i5804" target="_blank">
+                        <button className="watch-button">Watch Video</button>
+                    </a>                </div>
 
                 <div className="dark-filter"></div>      
                 <video autoPlay loop muted>
@@ -34,8 +35,9 @@ const myCarousel = () => {
                     references to inside jokes, shows and movies we watched growing up, 
                     and other random pop culture references too.
                     </p>
-                    <button className="watch-button">Watch Video</button>
-                </div>
+                    <a href="https://www.youtube.com/watch?v=CR-0viYyWAA" target="_blank">
+                        <button className="watch-button">Watch Video</button>
+                    </a>                </div>
                 <div className="dark-filter"></div>
                 <video autoPlay loop muted>
                     <source src={require('../assets/vid2.mp4')}></source>
@@ -50,7 +52,9 @@ const myCarousel = () => {
                     3rd Place in Western University Smartphone Film Festival, Viewer's Choice Award 
                     for Best Film in Western University Smartphone Film Festival.
                     </p>
-                    <button className="watch-button">Watch Video</button>
+                    <a href="https://www.youtube.com/watch?v=5PhGe6ZBu6g" target="_blank">
+                        <button className="watch-button">Watch Video</button>
+                    </a>
                 </div>
                 <div className="dark-filter"></div>
                 <video autoPlay loop muted >

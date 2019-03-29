@@ -80,8 +80,13 @@ body {
     font-weight: 600;
     border: none;
     float: left;
+    outline: 0;
 }
 
 .watch-button:hover {
     background-color: #C89F3C;
+}
+
+.watch-button:focus {
+   outline: none;
 }
