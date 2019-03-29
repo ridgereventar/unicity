@@ -22,8 +22,8 @@ class Projects extends Component {
         return (  
             <div className="projects-container">
                 <h1 id="proj-label">Current Projects</h1>
-                {this.state.projects.map(proj => (
-                  <Projectcard projObj={proj}></Projectcard>
+                {this.state.projects.map((proj, i) => (
+                  <Projectcard key={i} id={i} projObj={proj}></Projectcard>
                 ))}            
             </div>
         );

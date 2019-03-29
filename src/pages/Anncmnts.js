@@ -30,8 +30,8 @@ class Anncmnts extends Component {
         <div className="anncmnts-container">
             <div className="anncmnts-content">
                 <h2 className="annc-title">Announcements</h2>
-                {this.state.announcements.map(ann => (
-                  <Anncmnt annObj={ann}></Anncmnt>
+                {this.state.announcements.map((ann,i) => (
+                  <Anncmnt key={i} annObj={ann}></Anncmnt>
                 ))}
             </div>
         </div>

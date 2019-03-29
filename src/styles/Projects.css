@@ -48,5 +48,44 @@
     padding-right: 15px;
 }
 
+#request-join-btn:hover {
+    background-color: #C89F3C;
+    color: black;
+
+}
+
+#request-join-btn:focus {
+    outline: none;
+}
+
+
+.pending-star-container {
+    margin-top: -25px;
+    position: relative;
+    float: right;
+    overflow: hidden;
+    width:20px; 
+    height: 60px; 
+    pointer-events: none; 
+}
+
+.pending-star {
+    position: absolute;
+    top: -20px;
+    height: 20px;
+    width: 100%;
+    background-image: url('../assets/star.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.req-pending-msg {
+    float: right;
+    color:white;
+    margin-right: 12px; 
+    margin-top: 12px;
+    font-size: 12px;
+    display: none;
+}
 
 
