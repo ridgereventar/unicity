@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import $ from 'jquery';
 import '../styles/index.css';
 
-
+// CSS transitions
 export const showSuccess = () => {
     $('#success').css({'transition':'0.5s', 'top':'0'});
     $('#success').delay(2500).queue(function (next) { 

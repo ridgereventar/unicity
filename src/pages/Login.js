@@ -31,9 +31,9 @@ class Login extends Component {
 
     componentDidMount() {
         scrollToTop(); 
-        if(this.props.location.state.success) {
-            showSuccess();
-        }           
+        // if(this.props.location.state.success) {
+        //     showSuccess();
+        // }           
     }
 
     handleSubmit = (event) => {

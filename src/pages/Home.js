@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Link } from "react-router-dom";
+import $ from 'jquery';
 import '../styles/Home.css';
 
 import Footer from '../components/Footer';
@@ -8,6 +9,10 @@ import Splash from '../components/Splash';
 class Home extends Component {
 
     goToLogin = () => {
+        $(".backgroundImages").fadeOut();
+        $(".login-btn-container").fadeOut();
+        $(".message").fadeOut();
+        $(".footer").fadeOut();
         this.props.history.push({
             pathname: '/login', 
             state: {success: false}
