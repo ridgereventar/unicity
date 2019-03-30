@@ -45,8 +45,8 @@ Developing a dynamic web application that allows the members of UOIT's Universe 
 - src/pages/Create.js
 
 ## Authors
-Martin Ridge Reventar
-Mir Afgan Talpur
+- Martin Ridge Reventar
+- Mir Afgan Talpur
 
 Project was created by programming together
 
