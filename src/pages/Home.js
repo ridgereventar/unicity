@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Link } from "react-router-dom";
-import $ from 'jquery';
 import '../styles/Home.css';
 
 import Footer from '../components/Footer';
@@ -9,23 +8,10 @@ import Splash from '../components/Splash';
 class Home extends Component {
 
     goToLogin = () => {
-        $(".backgroundImages").hide();
-        $(".login-btn-container").hide();
-        $(".message").hide();
-        $(".footer").hide();
         this.props.history.push({
             pathname: '/login', 
             state: {success: false}
         })
-    }
-
-    routeChange = () => {
-        $(".backgroundImages").hide();
-        $(".login-btn-container").hide();
-        $(".message").hide();
-        $(".footer").hide();
-        let path = '/signup';
-        this.props.history.push(path);
     }
 
     render() { 
@@ -104,6 +90,11 @@ class Home extends Component {
             </BrowserRouter>
 
         );
+    }
+
+    routeChange = () => {
+        let path = '/signup';
+        this.props.history.push(path);
     }
 }
  

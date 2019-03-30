@@ -105,7 +105,7 @@ class Login extends Component {
     render() { 
         return ( 
             <React.Fragment>
-                <Banner history={this.props.history}/>
+                <Banner/>
                 <div className="signup-popup-container">
                     <Popup id="success" msg="Sign up successful!"></Popup>
                     <Popup id="error" msg="User does not exist"></Popup>
