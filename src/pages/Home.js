@@ -13,6 +13,11 @@ class Home extends Component {
             state: {success: false}
         })
     }
+    
+    routeChange = () => {
+        let path = '/signup';
+        this.props.history.push(path);
+    }
 
     render() { 
         return ( 
@@ -90,11 +95,6 @@ class Home extends Component {
             </BrowserRouter>
 
         );
-    }
-
-    routeChange = () => {
-        let path = '/signup';
-        this.props.history.push(path);
     }
 }
  

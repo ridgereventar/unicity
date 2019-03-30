@@ -19,11 +19,32 @@ class Create extends Component {
         }
     }
 
-    componentDidMount() {
-        console.log("context:", this.state.activeuser);
+    handleSubmit = (event) => {
+        event.preventDefault();
+        if(this.formValid()) {
+            const creatorName = this.state.activeuser.fname + " " + this.state.activeuser.lname;
+            const newproj = {
+                projectname: this.state.projectname, 
+                creator: creatorName,
+                description: this.state.description, 
+                lookingfor: this.state.lookingfor, 
+                members: this.state.members
+            }
+            // ajax post to projects collection in mongo
+            $.ajax({
+                type: "POST",
+                url: '/api/projects', 
+                data: newproj
+            })
+            showSuccess();
+            $('#create-proj-form')[0].reset();
+        } else {
+            showError();            
+        }
     }
 
     formValid = () => {
+        // if both project name and description are not null or "", form is valid.
         var valid = true;
         if(this.state.projectname === null || this.state.projectname === "" ||
             this.state.description === null || this.state.description === "") {
@@ -39,32 +60,6 @@ class Create extends Component {
         this.setState({[name]: value});
     }
 
-
-    handleSubmit = (event) => {
-        event.preventDefault();
-        if(this.formValid()) {
-            const creatorName = this.state.activeuser.fname + " " + this.state.activeuser.lname;
-            const newproj = {
-                projectname: this.state.projectname, 
-                creator: creatorName,
-                description: this.state.description, 
-                lookingfor: this.state.lookingfor, 
-                members: this.state.members
-            }
-
-            $.ajax({
-                type: "POST",
-                url: '/api/projects', 
-                data: newproj
-            })
-
-            showSuccess();
-            $('#create-proj-form')[0].reset();
-
-        } else {
-            showError();            
-        }
-    }
 
     render() { 
         return ( 

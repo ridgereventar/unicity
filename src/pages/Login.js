@@ -5,11 +5,13 @@ import '../styles/Login.css';
 import Banner from '../components/Banner';
 import Popup, { showSuccess, showError } from '../components/Popup';
 
+// If user scrolled down in previous page, Login will render with scroll up 
+// animation to display banner
 const scrollToTop = () => {
-    const c = document.documentElement.scrollTop || document.body.scrollTop;
-    if (c > 0) {
+    const scroll = document.documentElement.scrollTop || document.body.scrollTop;
+    if (scroll > 0) {
       window.requestAnimationFrame(scrollToTop);
-      window.scrollTo(0, c - c / 100);
+      window.scrollTo(0, scroll - scroll / 100);
     }
 };
 
@@ -17,8 +19,8 @@ class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            signinsuccess: false,
-            username: null, 
+            signinsuccess: false,  
+            username: null,         
             password: null,
             formErrors: {
                 userName: "",
@@ -29,14 +31,39 @@ class Login extends Component {
 
     componentDidMount() {
         scrollToTop(); 
-        // this.setState({signinsuccess: this.props.location.state.success})
         if(this.props.location.state.success) {
             showSuccess();
         }           
     }
 
+    handleSubmit = (event) => {
+        event.preventDefault(); 
+        if(this.formValid(this.state)) {
+            const user = { 
+                username: this.state.userName,
+                password: this.state.password
+            }
+            // AJAX: check if user exits. 
+            $.get("api/users", (data) => {
+                $.each(data, (key, value) => {
+                    if(value.username === this.state.username && value.password === this.state.password) {
+                        // Send user object to account
+                        this.props.history.push({
+                            pathname: '/account/announcements', 
+                            state: {activeuser: value}
+                        })
+                    } else {
+                        showError();
+                    }
+                });
+            });
+        } else {
+            showError();
+        }
+    }
 
     formValid = ({formErrors, ...rest}) => {
+        // if formErrors empty and state values != null, form is valid
         let valid = true;
         Object.values(formErrors).forEach(val => {
             if(val.length > 0) {
@@ -56,6 +83,7 @@ class Login extends Component {
         const {name, value} = event.target;
         let formErrors = this.state.formErrors;
 
+        // Form Validation: 
         switch(name) {
             case 'username':
                 formErrors.userName = value.length < 3 ? 'minimum 3 characters' : '';
@@ -67,33 +95,9 @@ class Login extends Component {
                 break;
         }
 
+        // Assigns each changed field to the state
         this.setState({formErrors, [name]: value}, () => console.log(this.state));
         
-    }
-
-    handleSubmit = (event) => {
-        event.preventDefault(); 
-        if(this.formValid(this.state)) {
-            const user = { 
-                username: this.state.userName,
-                password: this.state.password
-            }
-            // ajax get check if user exits. 
-            $.get("api/users", (data) => {
-                $.each(data, (key, value) => {
-                    if(value.username === this.state.username && value.password === this.state.password) {
-                        this.props.history.push({
-                            pathname: '/account/announcements', 
-                            state: {activeuser: value}
-                        })
-                    } else {
-                        showError();
-                    }
-                });
-            });
-        } else {
-            showError();
-        }
     }
 
     toSignup = () => {

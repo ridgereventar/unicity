@@ -6,10 +6,10 @@ import Banner from '../components/Banner';
 import Popup, { showSuccess, showError } from '../components/Popup';
 
 const scrollToTop = () => {
-    const c = document.documentElement.scrollTop || document.body.scrollTop;
-    if (c > 0) {
+    const scroll = document.documentElement.scrollTop || document.body.scrollTop;
+    if (scroll > 0) {
       window.requestAnimationFrame(scrollToTop);
-      window.scrollTo(0, c - c / 100);
+      window.scrollTo(0, scroll - scroll / 100);
     }
 };
 
@@ -39,7 +39,6 @@ class Signup extends Component {
     }
 
     formValid = ({formErrors, ...rest}) => {
-
         let valid = true;
         Object.values(formErrors).forEach(val => {
             if(val.length > 0) {
@@ -60,6 +59,7 @@ class Signup extends Component {
         const {name, value} = event.target;
         let formErrors = this.state.formErrors;
 
+        // Form validation
         switch(name) {
             case 'firstName':
                 formErrors.firstName = value.length == 0 ? 'field is empty' : '';
@@ -88,7 +88,6 @@ class Signup extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-
         if(this.formValid(this.state)) {
             showSuccess();
             const newuser = {
@@ -99,17 +98,17 @@ class Signup extends Component {
                 password: this.state.password, 
                 phone: this.state.phone
             }
+            // post new account to /api/users
             $.ajax({
                 type: "POST",
                 url: '/api/users', 
                 data: newuser
             })
-
+            // go to login page
             this.props.history.push({
                 pathname: '/login', 
                 state: {success: true}
             })
-
         } else {
             showError();
         }

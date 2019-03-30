@@ -13,6 +13,7 @@ class Projects extends Component {
     }
 
     componentDidMount() {
+        // fetch all projects from database
         $.get("api/projects", (data) => {
           this.setState({projects: data});
       });

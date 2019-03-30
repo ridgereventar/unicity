@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery'
-import Cookies from 'js-cookie';
 
 import './styles/index.css';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -10,35 +9,8 @@ import App from './components/App';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
-
-
 // testing jquery code:
 $(document).ready(function() {
-
-    // if( Cookies.get('splash_background') == null ) { // Here you are checking if cookie is existing if not you are showing a splash screen and set a cookie
-    //     $(".splash-logo").delay(100).fadeIn(1000);
-    //     $(".splash_title_main").delay(100).fadeIn(1000);
-    //     $(".click_to_begin").delay(1000).fadeIn("slow", function() {});
-    //     Cookies.set("splash_background", 1, { expires : 10 }); // cookie is valid for 10 days
-    // }
-
-    // $(".splash-logo").delay(100).fadeIn(1000);
-    // $(".splash_title_main").delay(100).fadeIn(1000);
-    // $(".click_to_begin").delay(1000).fadeIn("slow", function() {});
-
-    
-    // $(window).click(function fadeSplash() {
-    //     $(".splash_background").fadeOut("slow");
-    //     $(".splash").fadeOut("slow", function() {});
-    //     $(".splash_title").delay(600).fadeOut("slow", function() {});
-    //     $(".splash-logo").delay(600).fadeOut("slow", function() {});
-    //     $(".click_to_begin").fadeOut("slow");
-
-        // $(".backgroundImages").delay(100).fadeIn(1000);
-        // $(".message").delay(1600).fadeIn(1000);
-        // $(".footer").delay(1600).fadeIn(1000);
-    // })
-
 
     /*
     Parallax Scrolling effect provided by Lau Tiam Kok, from CodeMentor.io at:

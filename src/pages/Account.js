@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import $ from 'jquery';
 import { BrowserRouter, Route, Link } from "react-router-dom";
+import $ from 'jquery';
 import '../styles/Account.css';
+
 // components
 import Header from '../components/Header';
 import NavBar from '../components/Navbar';
@@ -14,6 +15,7 @@ import Films from './Films';
 import Events from './Events';
 import Create from './Create';
 
+// User context to keep track of active user while navigating
 export const UserContext = React.createContext();
 
 class Account extends Component {
@@ -21,14 +23,18 @@ class Account extends Component {
         super(props);
         this.state = {
             users: [], 
-            activeuser: this.props.location.state.activeuser 
+            activeuser: this.props.location.state.activeuser // recieve account info from Login.js
         }
     }
+
     componentDidMount() {
+        // Obtain all users using ajax call
         $.get("api/users", (data) => {
             this.setState({users: data});
         });
     }
+
+    // Custom Side drawer transitions
     openDrawer = () => {
         console.log("open drawer!");
         $('.block-cover').css({'opacity':'0.2', 'pointer-events':'all'});
@@ -36,12 +42,12 @@ class Account extends Component {
         $('.drawer').css({'transition':'0.5s', 'right':'0'});
         $('body').css('overflow','hidden');
     }
+
     hideDrawer = () => {
         $('.block-cover').css({'opacity':'0.0', 'pointer-events':'none'});
         $('.drawer-container').css('pointer-events', 'none');
         $('.drawer').css({'transition':'0.5s', 'right':'-250px'});
         $('body').css('overflow','visible');
-
     }
 
     logout = () => {
@@ -72,7 +78,6 @@ class Account extends Component {
                         </div>
                     </div>
                     <Header openDrawer={this.openDrawer}/>
-                    
                     <NavBar/>
                     
                     <Route path="/account/announcements" component={Anncmnts}></Route>

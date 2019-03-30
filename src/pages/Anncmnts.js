@@ -17,6 +17,7 @@ class Anncmnts extends Component {
   }
   
   componentDidMount() {
+    // Fetch all announcements from database
     $.get("api/announcements", (data) => {
       this.setState({announcements: data});
     });

@@ -4,6 +4,7 @@ import '../styles/Home.css';
 class Splash extends Component {
 
     componentDidMount() {
+        // Splash fade in transition effect when app mounted
         $('.splash-title-container').css({opacity: 0, display: 'flex'}).animate({
             opacity: 1
         }, 2000);
@@ -11,6 +12,7 @@ class Splash extends Component {
     }
 
     hideSplash = () => {
+        // onClick listener for splash div: hide splash, show home elements
         $('.splash_background').delay(100).fadeOut();
         $('.click_to_begin').fadeOut();
         $(".backgroundImages").show();
@@ -30,7 +32,6 @@ class Splash extends Component {
                 </div>
                 <div onClick={this.hideSplash} className="click_to_begin">Click to Begin</div>
             </React.Fragment>
-            
         );
     }
 }
