@@ -21,7 +21,7 @@ class Account extends Component {
         super(props);
         this.state = {
             users: [], 
-            activeuser: this.props.location.state.activeuser
+            activeuser: this.props.location.state.activeuser 
         }
     }
     componentDidMount() {

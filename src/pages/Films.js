@@ -19,8 +19,8 @@ class Films extends Component {
     render() { 
         return (  
             <div className="films-page-container">    
-                {this.state.urls.map(url => (
-                    <Video embedurl={url}></Video>
+                {this.state.urls.map((url, i) => (
+                    <Video key={i} embedurl={url}></Video>
                 ))}.
             </div>
 
