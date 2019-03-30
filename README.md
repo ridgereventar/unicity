@@ -1,5 +1,13 @@
 # UniCityFilmClub
 
+# How to Install/Run
+- download zip or clone repository. 
+- In terminal/cmd: change into project directory, then run:
+- npm i              
+- npm run dev       
+  
+Note: Our database is being hosted by MongoDB Atlas, and is public to all IP addresses.
+
 # Motivation
 Developing a dynamic web application that allows the members of UOIT's Universe City Film Club to experience the community online.
 
@@ -35,5 +43,11 @@ Developing a dynamic web application that allows the members of UOIT's Universe 
 - src/pages/Anncmnts.js
 - src/pages/Projects.js
 - src/pages/Create.js
+
+## Authors
+Martin Ridge Reventar
+Mir Afgan Talpur
+
+Project was created by programming together
 
 
